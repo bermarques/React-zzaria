@@ -1,5 +1,6 @@
 import { Grid } from "@material-ui/core";
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 
 import { ReactComponent as Logo } from "./logo.svg";
 import { Container, GitHubButton } from "./style";
@@ -14,7 +15,6 @@ let firebaseConfig = {
   measurementId: "G-12NR86ZRD8",
 };
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
 
 const Login = () => {
   return (
@@ -25,7 +25,10 @@ const Login = () => {
         </Grid>
 
         <Grid item xs={12} container justify="center">
-          <GitHubButton>Entrar com GitHub</GitHubButton>
+          <GitHubButton onClick={() => {
+            const provider = new firebase.auth.GithubAuthProvider()
+            firebase.auth().signInWithRedirect(provider)
+          }}>Entrar com GitHub</GitHubButton>
         </Grid>
       </Grid>
     </Container>
