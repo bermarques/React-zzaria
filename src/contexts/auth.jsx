@@ -1,0 +1,22 @@
+import { createContext, useCallback } from "react";
+import firebase from '../services/firebase'
+
+
+export const AuthContext = createContext()
+
+const Auth = ({children}) => {
+    const login = useCallback(() => {
+        const provider = new firebase.auth.GithubAuthProvider();
+        firebase.auth().signInWithRedirect(provider);
+      }, [])
+
+    return (
+        <AuthContext.Provider value={{
+            login
+        }}>
+        {children}            
+    </AuthContext.Provider>
+        )
+}
+
+export default Auth

@@ -1,12 +1,14 @@
 import { Grid } from "@material-ui/core";
-import { useEffect, useState, useCallback } from "react";
-import firebase from '../../services/firebase'
+import { useCallback, useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../contexts/auth";
 import { ReactComponent as Logo } from "./logo.svg";
+import firebase from '../../services/firebase'
 import { Container, GitHubButton } from "./style";
 
 
 
 const Login = () => {
+  const {login } = useContext(AuthContext)
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -17,10 +19,7 @@ const Login = () => {
     });
   });
 
-  const login = useCallback(() => {
-    const provider = new firebase.auth.GithubAuthProvider();
-    firebase.auth().signInWithRedirect(provider);
-  }, [])
+
 
   const logout = useCallback(() => {
     firebase.auth().signOut().then(() => {
