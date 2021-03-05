@@ -20,21 +20,15 @@ const App = ({ location }) => {
       setDidCheckUserIn(true);
     });
     window.logout = logout;
-  }, []);
+  });
 
   if (!didCheckUserIn) {
     return <LinearProgress />;
   }
-
-  if (isUserLoggedIn) {
-    if (location.pathname === "/login") {
-      return <Redirect to="/" />;
-    }
-  } else {
-    if (location.pathname !== "/login") {
-      return <Redirect to="/login" />;
-    } else {
-    }
+  if (isUserLoggedIn && location.pathname === "/login") {
+    return <Redirect to="/" />;
+  } else if (!isUserLoggedIn && location.pathname !== "/login") {
+    return <Redirect to="/login" />;
   }
 
   return (
