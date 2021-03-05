@@ -24,3 +24,7 @@ export const Toolbar = styled(MaterialToolbar)`
   max-width: 960px;
   width: 100%;
 `;
+
+export const Content = styled.main`
+    padding: 20px;
+`
