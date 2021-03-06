@@ -18,6 +18,8 @@ import {
   Toolbar,
   Pizza,
   PizzaText,
+  PizzasGrid,
+  Title,
 } from "./style";
 import { AuthContext } from "../../contexts/auth";
 
@@ -60,17 +62,17 @@ const MainPage = () => {
 
       <Content>
         <Grid container direction="column" alignItems="center">
-          <Typography variant="h3" gutterBottom>
+          <Title variant="h3">
             O que vai ser hoje, {userName}?
-          </Typography>
+          </Title>
 
-          <Typography variant="h4" gutterBottom>
+          <Title variant="h4">
             Escolha o tamanho da pizza:
-          </Typography>
+          </Title>
 
-          <Grid container spacing={2}>
+          <PizzasGrid>
             {pizzaSizes.map((pizza) => (
-              <Grid item key={pizza.id} xs={4}>
+              <Grid item key={pizza.id} xs={12} sm={4}>
                 <PaperPizza>
                   <Pizza>
                     <PizzaText>{pizza.size}cm</PizzaText>
@@ -84,7 +86,7 @@ const MainPage = () => {
                 </PaperPizza>
               </Grid>
             ))}
-          </Grid>
+          </PizzasGrid>
         </Grid>
       </Content>
     </>

@@ -7,7 +7,13 @@ import { BrowserRouter, Route } from "react-router-dom";
 import App from "./App";
 import AuthProvider from "./contexts/auth";
 
-const theme = createMuiTheme();
+const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      sm: 720
+    }
+  }
+});
 
 const Root = () => {
   return (

@@ -5,6 +5,7 @@ import {
   Divider as MaterialDivider,
   Paper,
   Typography,
+  Grid,
 } from "@material-ui/core";
 
 export const LogoContainer = styled.div`
@@ -34,6 +35,18 @@ export const Content = styled.main`
   padding: 20px;
 `;
 
+export const Title = styled(Typography).attrs({
+  gutterBottom: true,
+  align: 'center'
+})``
+
+export const PizzasGrid = styled(Grid).attrs({
+  container: true,
+  spacing: 16,
+})`
+  padding: 20px;
+`
+
 export const Divider = styled(MaterialDivider)`
   margin: 20px 0;
   width: 100%;
@@ -43,6 +56,7 @@ export const PaperPizza = styled(Paper)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px 0;
 `;
 
 export const Pizza = styled.div`
