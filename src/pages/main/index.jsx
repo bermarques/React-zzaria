@@ -1,74 +1,36 @@
+import { Grid, Typography, withStyles } from "@material-ui/core";
+import { useContext } from "react";
+import Header from "../../components/header";
+import { AuthContext } from "../../contexts/auth";
 import {
-  AppBar,
-  IconButton,
-  Typography,
-  Menu,
-  MenuItem,
-  Grid,
-  withStyles,
-} from "@material-ui/core";
-import { AccountCircle } from "@material-ui/icons";
-import { useContext, useState } from "react";
-import {
-  PaperPizza,
   Content,
   Divider,
-  Logo,
-  LogoContainer,
-  Toolbar,
+  PaperPizza,
   Pizza,
-  PizzaText,
   PizzasGrid,
+  PizzaText,
   Title,
 } from "./style";
-import { AuthContext } from "../../contexts/auth";
 
 const MainPage = () => {
-  const [anchorElement, setAnchorElement] = useState(null);
-  const { user, logout } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const userName = user.displayName.split(" ")[0];
-  const handleOpenMenu = (e) => {
-    setAnchorElement(e.target);
-  };
 
-  const handleClose = () => {
-    setAnchorElement(null);
+  const singularOrPlural = (amount, singular, plural) => {
+    return amount === 1 ? singular : plural;
   };
 
   return (
     <>
-      <AppBar>
-        <Toolbar>
-          <LogoContainer>
-            <Logo />
-          </LogoContainer>
-
-          <Typography>Olá {userName} =)</Typography>
-          <IconButton color="inherit" onClick={handleOpenMenu}>
-            <AccountCircle />
-          </IconButton>
-
-          <Menu
-            open={!!anchorElement}
-            onClose={handleClose}
-            anchorEl={anchorElement}
-          >
-            <MenuItem onClick={logout}>Sair</MenuItem>
-          </Menu>
-        </Toolbar>
-      </AppBar>
-
+      <Header />
+      
       <Spacer />
 
       <Content>
         <Grid container direction="column" alignItems="center">
-          <Title variant="h3">
-            O que vai ser hoje, {userName}?
-          </Title>
+          <Title variant="h3">O que vai ser hoje, {userName}?</Title>
 
-          <Title variant="h4">
-            Escolha o tamanho da pizza:
-          </Title>
+          <Title variant="h4">Escolha o tamanho da pizza:</Title>
 
           <PizzasGrid>
             {pizzaSizes.map((pizza) => (
@@ -81,7 +43,8 @@ const MainPage = () => {
                   <Divider />
                   <Typography variant="h5">{pizza.name}</Typography>
                   <Typography>
-                    {pizza.slices} fatias, {pizza.flavours} sabores
+                    {pizza.slices} fatias, {pizza.flavours}{" "}
+                    {singularOrPlural(pizza.flavours, "sabor", "sabores")}
                   </Typography>
                 </PaperPizza>
               </Grid>
