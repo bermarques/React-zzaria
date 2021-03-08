@@ -19,7 +19,6 @@ const App = ({ location }) => {
       setUser(user);
       setDidCheckUserIn(true);
     });
-    window.logout = logout;
   });
 
   if (!didCheckUserIn) {
