@@ -5,21 +5,25 @@ import Header from "../../components/header";
 import {
   Content
 } from "./style";
-const ChoosePizzaSize = lazy(() => import('../choose-pizza-size/index.jsx'))
+const ChoosePizzaSize = lazy(() => import('../choose-pizza-size'))
+const ChoosePizzaFlavours = lazy(() => import('../choose-pizza-flavours'))
 
 const MainPage = () => (
-    <>
+  <>
       <Header />
+
+      <Spacer />
+      
+      <Content>
         <Suspense fallback="<h2>Carregando...</h2>">
           <Switch>
             <Route path='/' exact component={ChoosePizzaSize} />
+            <Route path='/sabores-da-pizza' exact component={ChoosePizzaFlavours} />
           </Switch>
         </Suspense>
-      <Spacer />
-
-      <Content>
-        
       </Content>
+
+        
     </>
   )
 
