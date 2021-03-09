@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import {
   Divider as MaterialDivider,
-  Paper,
   Typography,
   Grid,
+  CardActionArea as MaterialCardActionArea
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 
 
@@ -19,7 +20,7 @@ export const Title = styled(Typography).attrs({
 
 export const PizzasGrid = styled(Grid).attrs({
   container: true,
-  spacing: 16,
+  spacing: 2,
 })`
   padding: 20px;
 `
@@ -29,7 +30,9 @@ export const Divider = styled(MaterialDivider)`
   width: 100%;
 `;
 
-export const PaperPizza = styled(Paper)`
+export const CardActionArea = styled(MaterialCardActionArea).attrs({
+  component: Link
+})`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,6 +40,7 @@ export const PaperPizza = styled(Paper)`
 `;
 
 export const Pizza = styled.div`
+  background: #fff;
   border: 1px solid #ccc;
   border-radius: 50%;
   display: flex;
@@ -45,6 +49,7 @@ export const Pizza = styled.div`
   height: 200px;
   width: 200px;
   position: relative;
+  z-index: 1;
 
   &::before,
   &::after {

@@ -1,15 +1,15 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Card, Grid, Typography } from "@material-ui/core";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/auth";
 import pizzaSizes from '../../fake-data/pizzasSizes'
 
 import {
   Divider,
-  PaperPizza,
   Pizza,
   PizzasGrid,
   PizzaText,
   Title,
+  CardActionArea
 } from "./style";
 
 const ChoosePizzaSize = () => {
@@ -30,7 +30,8 @@ const ChoosePizzaSize = () => {
         <PizzasGrid>
           {pizzaSizes.map((pizza) => (
             <Grid item key={pizza.id} xs={12} sm={4}>
-              <PaperPizza>
+              <Card>
+                <CardActionArea to="/sabores-da-pizza">
                 <Pizza>
                   <PizzaText>{pizza.size}cm</PizzaText>
                 </Pizza>
@@ -41,7 +42,8 @@ const ChoosePizzaSize = () => {
                   {pizza.slices} fatias, {pizza.flavours}{" "}
                   {singularOrPlural(pizza.flavours, "sabor", "sabores")}
                 </Typography>
-              </PaperPizza>
+                </CardActionArea>
+              </Card>
             </Grid>
           ))}
         </PizzasGrid>
