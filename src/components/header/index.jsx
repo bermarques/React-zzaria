@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import { AccountCircle } from "@material-ui/icons";
 import { useContext, useState } from "react";
+import { Switch, Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/auth";
 import { Logo, LogoContainer, Toolbar } from "./style";
 
@@ -28,7 +29,11 @@ const Header = () => {
     <AppBar>
       <Toolbar>
         <LogoContainer>
-          <Logo />
+          <Switch>
+            <Link to="/">
+              <Logo />
+            </Link>
+          </Switch>
         </LogoContainer>
 
         <Typography>Olá {userName} =)</Typography>
