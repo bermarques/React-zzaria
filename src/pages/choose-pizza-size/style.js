@@ -13,11 +13,6 @@ export const Content = styled.main`
   padding: 20px;
 `;
 
-export const Title = styled(Typography).attrs({
-  gutterBottom: true,
-  align: 'center'
-})``
-
 export const PizzasGrid = styled(Grid).attrs({
   container: true,
   spacing: 2,

@@ -8,9 +8,9 @@ import {
   Pizza,
   PizzasGrid,
   PizzaText,
-  Title,
   CardActionArea
 } from "./style";
+import Title from '../../components/title/'
 
 const ChoosePizzaSize = () => {
   const { user } = useContext(AuthContext);
