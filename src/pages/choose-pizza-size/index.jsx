@@ -2,7 +2,7 @@ import { Card, Grid, Typography } from "@material-ui/core";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/auth";
 import pizzaSizes from '../../fake-data/pizzasSizes'
-
+import {CHOOSE_PIZZA_FLAVOURS} from '../../routes'
 import {
   Divider,
   Pizza,
@@ -32,7 +32,7 @@ const ChoosePizzaSize = () => {
             <Grid item key={pizza.id} xs={12} sm={4}>
               <Card>
                 <CardActionArea to={{
-                  pathname: "/sabores-da-pizza",
+                  pathname: CHOOSE_PIZZA_FLAVOURS,
                   state: pizza
                   }}>
                 <Pizza>

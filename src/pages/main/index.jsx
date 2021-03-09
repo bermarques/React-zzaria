@@ -1,33 +1,32 @@
 import { withStyles } from "@material-ui/core";
 import { lazy, Suspense } from "react";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 import Header from "../../components/header";
-import {
-  Content
-} from "./style";
-const ChoosePizzaSize = lazy(() => import('../choose-pizza-size'))
-const ChoosePizzaFlavours = lazy(() => import('../choose-pizza-flavours'))
+import { Content } from "./style";
+import { HOME, CHOOSE_PIZZA_FLAVOURS } from "../../routes";
+const ChoosePizzaSize = lazy(() => import("../choose-pizza-size"));
+const ChoosePizzaFlavours = lazy(() => import("../choose-pizza-flavours"));
 
 const MainPage = () => (
   <>
-      <Header />
+    <Header />
 
-      <Spacer />
-      
-      <Content>
-        <Suspense fallback="<h2>Carregando...</h2>">
-          <Switch>
-            <Route path='/' exact component={ChoosePizzaSize} />
-            <Route path='/sabores-da-pizza' exact component={ChoosePizzaFlavours} />
-          </Switch>
-        </Suspense>
-      </Content>
+    <Spacer />
 
-        
-    </>
-  )
-
-
+    <Content>
+      <Suspense fallback="<h2>Carregando...</h2>">
+        <Switch>
+          <Route path={HOME} exact component={ChoosePizzaSize} />
+          <Route
+            path={CHOOSE_PIZZA_FLAVOURS}
+            exact
+            component={ChoosePizzaFlavours}
+          />
+        </Switch>
+      </Suspense>
+    </Content>
+  </>
+);
 
 const style = (theme) => {
   return {
