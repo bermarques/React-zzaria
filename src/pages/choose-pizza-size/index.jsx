@@ -6,11 +6,11 @@ import {CHOOSE_PIZZA_FLAVOURS} from '../../routes'
 import {
   Pizza,
   PizzaText,
-  CardActionArea
 } from "./style";
 import Title from '../../components/title/'
 import PizzasGrid from '../../components/pizzas-grid/'
 import Divider from '../../components/divider/'
+import CardLink from '../../components/card-link'
 import singularOrPlural from '../../utils/singularOrPlural'
 
 const ChoosePizzaSize = () => {
@@ -28,7 +28,7 @@ const ChoosePizzaSize = () => {
           {pizzaSizes.map((pizza) => (
             <Grid item key={pizza.id} xs={12} sm={4}>
               <Card>
-                <CardActionArea to={{
+                <CardLink to={{
                   pathname: CHOOSE_PIZZA_FLAVOURS,
                   state: pizza
                   }}>
@@ -42,7 +42,7 @@ const ChoosePizzaSize = () => {
                   {pizza.slices} fatias, {pizza.flavours}{" "}
                   {singularOrPlural(pizza.flavours, "sabor", "sabores")}
                 </Typography>
-                </CardActionArea>
+                </CardLink>
               </Card>
             </Grid>
           ))}

@@ -1,13 +1,13 @@
 import { Card, Grid, Typography } from "@material-ui/core";
 import { Redirect } from "react-router";
-import Title from "../../components/title/";
-import PizzasGrid from "../../components/pizzas-grid/";
 import Divider from "../../components/divider";
-import singularOrPlural from "../../utils/singularOrPlural";
-import { HOME } from "../../routes";
+import PizzasGrid from "../../components/pizzas-grid/";
+import Title from "../../components/title/";
 import pizzaFlavours from "../../fake-data/pizzasFlavours";
+import { HOME } from "../../routes";
+import singularOrPlural from "../../utils/singularOrPlural";
+import { Img, Label } from "./style";
 
-import { Img } from "./style";
 
 const ChoosePizzaFlavours = ({ location }) => {
   if (!location.state) {
@@ -30,12 +30,15 @@ const ChoosePizzaFlavours = ({ location }) => {
         {pizzaFlavours.map((pizza) => (
           <Grid item key={pizza.id} xs={12} sm={4}>
             <Card>
-              <Img src={pizza.image} alt={pizza.name} />
+              <Label>
+                  <input type='checkbox' />
+                <Img src={pizza.image} alt={pizza.name} />
 
-              <Divider />
+                <Divider />
 
-              <Typography>{pizza.name}</Typography>
-              <Typography variant="h5">{pizza.value[id]}</Typography>
+                <Typography>{pizza.name}</Typography>
+                <Typography variant="h5">{pizza.value[id]}</Typography>
+              </Label>
             </Card>
           </Grid>
         ))}
