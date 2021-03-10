@@ -1,28 +1,13 @@
-import styled from "styled-components";
 import {
-  Divider as MaterialDivider,
-  Typography,
-  Grid,
-  CardActionArea as MaterialCardActionArea
+  CardActionArea as MaterialCardActionArea, Typography
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 
 
 export const Content = styled.main`
   padding: 20px;
-`;
-
-export const PizzasGrid = styled(Grid).attrs({
-  container: true,
-  spacing: 2,
-})`
-  padding: 20px;
-`
-
-export const Divider = styled(MaterialDivider)`
-  margin: 20px 0;
-  width: 100%;
 `;
 
 export const CardActionArea = styled(MaterialCardActionArea).attrs({

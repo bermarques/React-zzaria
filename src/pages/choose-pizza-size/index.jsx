@@ -4,21 +4,18 @@ import { AuthContext } from "../../contexts/auth";
 import pizzaSizes from '../../fake-data/pizzasSizes'
 import {CHOOSE_PIZZA_FLAVOURS} from '../../routes'
 import {
-  Divider,
   Pizza,
-  PizzasGrid,
   PizzaText,
   CardActionArea
 } from "./style";
 import Title from '../../components/title/'
+import PizzasGrid from '../../components/pizzas-grid/'
+import Divider from '../../components/divider/'
+import singularOrPlural from '../../utils/singularOrPlural'
 
 const ChoosePizzaSize = () => {
   const { user } = useContext(AuthContext);
   const userName = user.displayName.split(" ")[0];
-
-  const singularOrPlural = (amount, singular, plural) => {
-    return amount === 1 ? singular : plural;
-  };
 
   return (
     <>
